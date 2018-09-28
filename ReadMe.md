@@ -2,7 +2,7 @@
 
 A custom task which can add Windows Process ID (PID) of both EG process and background SAS process into the EG title bar. It works by running the custom task "Show PID" after you open the SAS Enterprise Guide.
 
-![](pics\result.png)
+![](https://github.com/slash-xin/SASEG_ShowPID/blob/master/pics/result.png)
 
 
 
@@ -19,13 +19,13 @@ To use the task:
 
 1. Open SAS Enterprise Guide and Click "Tools" -> "Add-in" -> "Show PID", like this:
 
-   ![](pics\toolsmenu.png)
+   ![](https://github.com/slash-xin/SASEG_ShowPID/blob/master/pics/toolsmenu.png)
 
 2. After you click it, the task will be running:
 
-   ![](pics\running.png)
+   ![](https://github.com/slash-xin/SASEG_ShowPID/blob/master/pics/running.png)
 
 3. When the task is finished, the task icon is disappeared, and the PID infor is added to the Title.
 
-   ![](pics\finish.png)
+   ![](https://github.com/slash-xin/SASEG_ShowPID/blob/master/pics/finish.png)
 
