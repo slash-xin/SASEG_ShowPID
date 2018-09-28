@@ -1,0 +1,8 @@
+D:\VSProject\06GMCC\ShowPID\obj\Debug\ShowPID.csprojAssemblyReference.cache
+D:\VSProject\06GMCC\ShowPID\obj\Debug\ShowPID.BasicStatus.resources
+D:\VSProject\06GMCC\ShowPID\obj\Debug\ShowPID.csproj.GenerateResource.cache
+D:\VSProject\06GMCC\ShowPID\obj\Debug\ShowPID.csproj.CoreCompileInputs.cache
+D:\VSProject\06GMCC\ShowPID\bin\Debug\ShowPID.dll
+D:\VSProject\06GMCC\ShowPID\bin\Debug\ShowPID.pdb
+D:\VSProject\06GMCC\ShowPID\obj\Debug\ShowPID.dll
+D:\VSProject\06GMCC\ShowPID\obj\Debug\ShowPID.pdb
