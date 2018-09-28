@@ -18,7 +18,9 @@ namespace ShowPID
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
         public static extern bool SetWindowText(IntPtr hwnd, string lpString);
 
-        static bool handled = false;
+        static string EGTitle = "SAS Enterprise Guide";
+        static string WorkspaceID = string.Empty;
+        static bool flag = true;
 
         private void InitializeComponent()
         {
@@ -40,25 +42,30 @@ namespace ShowPID
         }
 
         public override ShowResult Show(IWin32Window Owner)
-        {
-            IntPtr hwnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
-
-            if (null != hwnd && System.Diagnostics.Process.GetCurrentProcess().MainWindowTitle.Contains("SAS Enterprise Guide") && !handled)
+        {            
+            try
             {
-                try
+                if(flag)
                 {
-                    SasServer server = new SasServer(Consumer.AssignedServer);
+                    EGTitle = System.Diagnostics.Process.GetCurrentProcess().MainWindowTitle;
+                    flag = false;
+                }
+
+                IntPtr hwnd = System.Diagnostics.Process.GetCurrentProcess().MainWindowHandle;
+                SasServer server = new SasServer(Consumer.AssignedServer);
+                if (null != hwnd && WorkspaceID!=server.GetWorkspaceIdentifier())
+                {
                     string sas_pid = server.GetSasMacroValue("SYSJOBID");
 
-                    string title = string.Format("{0} (EG_PID={1}; SAS_PID={2})", System.Diagnostics.Process.GetCurrentProcess().MainWindowTitle,
+                    string title = string.Format("{0} (EG_PID={1}; SAS_PID={2})", EGTitle,
                         System.Diagnostics.Process.GetCurrentProcess().Id, sas_pid);
 
                     SetWindowText(hwnd, title);
 
-                    handled = true;
+                    WorkspaceID = server.GetWorkspaceIdentifier();
                 }
-                catch { };
             }
+            catch { };
 
             return ShowResult.Canceled;
         }
